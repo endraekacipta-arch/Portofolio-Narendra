@@ -44,7 +44,8 @@ const galleryItems = [
     category: 'Web3 / Data',
     image: '/Coinfinder.png',
     tagClass: 'bg-yellow-600/20 border-yellow-500/30 text-yellow-400',
-    imageClass: 'object-contain object-center'
+    imageClass: 'object-contain object-center',
+    link: 'https://claude.ai/public/artifacts/48c2a5c0-5232-4e33-baaf-ccbdaa35d749'
   }
 ];
 

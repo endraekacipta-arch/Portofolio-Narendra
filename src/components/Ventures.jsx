@@ -28,7 +28,7 @@ export default function Ventures() {
                   <span>2021 – Present</span>
                 </span>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-white font-bold group-hover:text-gold-light transition-colors duration-500">Independent Consultant & Digital Strategist</h3>
-                <h4 className="text-sm md:text-base text-gray-400 mt-1">Digital Marketing & Web Development</h4>
+                <h4 className="text-sm md:text-base text-gray-400 mt-1">Digital Marketing, Web Development and Automation</h4>
               </div>
               <div className="p-3 bg-white/5 rounded-full group-hover:bg-gold-base/20 transition-colors duration-500 shrink-0 ml-4">
                 <Rocket className="w-5 h-5 md:w-6 md:h-6 text-gold-base" />

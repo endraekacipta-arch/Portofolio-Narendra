@@ -516,7 +516,7 @@ export default function Capabilities() {
               <div className="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
                 <Lightbulb className="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform" />
               </div>
-              <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-2">Agile Learning</h4>
+              <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-2">Continuous Learning</h4>
               <p className="text-gray-400 text-xs leading-relaxed">Rapidly mastering new technologies (AI/Web3) to keep strategies cutting-edge.</p>
             </div>
 

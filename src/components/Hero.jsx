@@ -80,7 +80,7 @@ export default function Hero() {
             <a href="#services" className="btn-premium-gold w-full sm:w-auto px-6 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-5 bg-gold-gradient text-dark-900 font-extrabold tracking-[0.1em] sm:tracking-[0.15em] uppercase text-[10px] sm:text-xs rounded-sm text-center shadow-lg">
               Explore Capabilities
             </a>
-            <a href="#" className="group w-full sm:w-auto flex items-center justify-center space-x-3 sm:space-x-4 px-6 sm:px-8 py-3.5 sm:py-4 md:py-5 border border-white/10 hover:border-gold-base/50 bg-white/5 backdrop-blur-md rounded-sm transition-all duration-500 text-white hover:text-gold-base">
+            <a href="/CV-Narendra.pdf" download="CV_Narendra_Eka_Cipta.pdf" className="group w-full sm:w-auto flex items-center justify-center space-x-3 sm:space-x-4 px-6 sm:px-8 py-3.5 sm:py-4 md:py-5 border border-white/10 hover:border-gold-base/50 bg-white/5 backdrop-blur-md rounded-sm transition-all duration-500 text-white hover:text-gold-base">
               <span className="font-bold tracking-[0.1em] uppercase text-[10px] sm:text-xs">Download CV</span>
               <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold-base transform group-hover:scale-110" />
             </a>

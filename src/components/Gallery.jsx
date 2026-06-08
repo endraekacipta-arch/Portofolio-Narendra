@@ -40,10 +40,11 @@ const galleryItems = [
     tagClass: 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400'
   },
   {
-    title: 'CoinFinder (Deep Search)',
+    title: 'CoinFinder (Prompt Deep Research)',
     category: 'Web3 / Data',
-    image: 'https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-yellow-600/20 border-yellow-500/30 text-yellow-400'
+    image: '/Coinfinder.png',
+    tagClass: 'bg-yellow-600/20 border-yellow-500/30 text-yellow-400',
+    imageClass: 'object-contain object-center'
   }
 ];
 

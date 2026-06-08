@@ -4,9 +4,9 @@ export default function Footer() {
       <div className="section-divider-glow"></div>
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
         <div className="mb-8 md:mb-0">
-          <span className="font-serif text-2xl font-bold tracking-wider text-white uppercase">
+          <a href="#hero" className="font-serif text-2xl font-bold tracking-wider text-white uppercase hover:text-gold-base transition-colors duration-300">
             NARE<span className="text-gold-base">N</span>DRA<span className="text-gold-base">.</span>
-          </span>
+          </a>
           <p className="text-gray-500 text-[9px] md:text-[10px] uppercase tracking-[0.3em] mt-4">
             © 2026 Narendra Eka Cipta
           </p>

@@ -32,9 +32,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex-shrink-0 flex items-center">
-            <span className="font-serif text-xl md:text-2xl font-bold tracking-wider text-white uppercase opacity-0 animate-reveal">
+            <a href="#hero" className="font-serif text-xl md:text-2xl font-bold tracking-wider text-white uppercase opacity-0 animate-reveal hover:text-gold-base transition-colors duration-300">
               NARE<span className="text-gold-base">N</span>DRA<span className="text-gold-base">.</span>
-            </span>
+            </a>
           </div>
           <div className="hidden lg:flex space-x-10 xl:space-x-12 items-center opacity-0 animate-reveal reveal-delay-2">
             <a href="#about" className="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">

@@ -39,7 +39,7 @@ const galleryItems = [
     image: '/Tradingview.png',
     tagClass: 'bg-green-600/20 border-green-500/30 text-green-400',
     imageClass: 'object-contain object-center',
-    link: 'https://wa.me/628587934934'
+    link: 'https://wa.me/6285879934934'
   },
   {
     title: 'AI-Agent Custom',
@@ -47,7 +47,7 @@ const galleryItems = [
     image: '/AI-Agent.png',
     tagClass: 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400',
     imageClass: 'object-contain object-center',
-    link: 'https://wa.me/628587934934'
+    link: 'https://wa.me/6285879934934'
   },
   {
     title: 'CoinFinder (Prompt Deep Research)',

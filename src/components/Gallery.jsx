@@ -10,8 +10,10 @@ const galleryItems = [
   {
     title: 'BCA Auto-Scheduler',
     category: 'Automation',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-purple-600/20 border-purple-500/30 text-purple-400'
+    image: '/BCA-AutoScheduling.png',
+    tagClass: 'bg-purple-600/20 border-purple-500/30 text-purple-400',
+    link: 'https://claude.ai/public/artifacts/c6e0f7d4-f482-4b56-a79c-0b7b3b4cff6d',
+    imageClass: 'object-contain object-top'
   },
   {
     title: 'RenX CRM',

@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Capabilities from '../components/Capabilities';
+import Experience from '../components/Experience';
+import Ventures from '../components/Ventures';
+import Gallery from '../components/Gallery';
+import Connect from '../components/Connect';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Narendra Eka Cipta | Digital Growth Partner">
+  {/* Background Layers */}
+  <div class="bg-pattern"></div>
+  <div class="bg-lines">
+    <div class="bg-line line-1"></div>
+    <div class="bg-line line-2" style="margin-top: 20vh;"></div>
+    <div class="bg-line line-3" style="margin-top: -10vh;"></div>
+  </div>
+  <div class="orb-container">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="bg-vignette"></div>
+  <div class="bg-grain"></div>
+
+  <Navbar client:load />
+  <main>
+    <Hero />
+    <About />
+    <Capabilities client:load />
+    <Experience />
+    <Ventures />
+    <Gallery client:load />
+    <Connect client:load />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Parallax scroll effect for background orbs and pattern
+  let ticking = false;
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const orbContainer = document.querySelector('.orb-container');
+        const bgPattern = document.querySelector('.bg-pattern');
+        if (orbContainer instanceof HTMLElement) {
+          orbContainer.style.transform = `translate3d(0, ${scrollTop * 0.15}px, 0)`;
+        }
+        if (bgPattern instanceof HTMLElement) {
+          bgPattern.style.transform = `translate3d(0, ${scrollTop * 0.05}px, 0)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // Intersection Observer for scroll animations (fade-in-up elements)
+  const observerOptions = {
+    root: null,
+    rootMargin: '50px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        window.requestAnimationFrame(() => {
+          entry.target.classList.add('is-visible');
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Run observation on elements with .fade-in-up class
+  const animElements = document.querySelectorAll('.fade-in-up');
+  animElements.forEach(el => observer.observe(el));
+
+  // Lazy load standard setup for images
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    if (!img.getAttribute('loading')) {
+      img.setAttribute('loading', 'lazy');
+    }
+  });
+</script>

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const galleryItems = [
@@ -46,15 +45,7 @@ const galleryItems = [
   }
 ];
 
-const categories = ['All', 'Web Dev', 'Mobile App', 'Automation', 'FinTech', 'AI Integration', 'Web3 / Data'];
-
 export default function Gallery() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const filteredItems = selectedCategory === 'All' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === selectedCategory);
-
   return (
     <section id="portfolio" className="py-16 md:py-24 relative overflow-hidden">
       <div className="section-divider-glow"></div>
@@ -73,23 +64,8 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 fade-in-up delay-100">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`filter-btn px-4 py-2 border border-white/10 rounded-sm text-[9px] md:text-[10px] font-bold uppercase tracking-wider ${
-                selectedCategory === category ? 'active' : 'text-gray-400 hover:text-white hover:border-white/20'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div id="gallery-grid" className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 fade-in-up delay-200 mt-5">
-          {filteredItems.map((item) => (
+        <div id="gallery-grid" className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 fade-in-up delay-200 mt-10">
+          {galleryItems.map((item) => (
             <div 
               key={item.title} 
               className="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900"

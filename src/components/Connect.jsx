@@ -3,8 +3,21 @@ import { Mail, Send, AtSign } from 'lucide-react';
 export default function Connect() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Static handling as requested by the user
-    alert("Message feature is in static mode. We can integrate this with an API (like Formspree or Web3Forms) later!");
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    const formattedText = `*Pesan Baru dari Portofolio Narendra*\n\n` +
+      `*Nama:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Subjek:* ${subject}\n\n` +
+      `*Pesan:*\n${message}`;
+
+    const encodedText = encodeURIComponent(formattedText);
+    const whatsappUrl = `https://wa.me/6285879934934?text=${encodedText}`;
+    
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -82,22 +95,22 @@ export default function Connect() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="name" className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Name</label>
-                  <input type="text" id="name" placeholder="John Doe" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
+                  <input type="text" id="name" name="name" placeholder="John Doe" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Email</label>
-                  <input type="email" id="email" placeholder="john@example.com" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
+                  <input type="email" id="email" name="email" placeholder="john@example.com" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Subject</label>
-                <input type="text" id="subject" placeholder="How can we collaborate? / Job Offer" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
+                <input type="text" id="subject" name="subject" placeholder="How can we collaborate? / Job Offer" className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Message</label>
-                <textarea id="message" rows="4" placeholder="Tell me about your desire..." className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600 resize-none" required></textarea>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me about your desire..." className="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600 resize-none" required></textarea>
               </div>
 
               <button type="submit" className="btn-premium-gold w-full px-8 py-4 bg-gold-gradient text-dark-900 font-extrabold tracking-[0.15em] uppercase text-xs rounded-sm text-center shadow-lg flex items-center justify-center space-x-2 mt-2">

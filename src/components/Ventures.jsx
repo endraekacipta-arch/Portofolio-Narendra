@@ -67,23 +67,23 @@ export default function Ventures() {
               </div>
               
               <div className="w-full md:w-auto overflow-x-auto hide-scrollbar pb-2 md:pb-0">
-                <div className="flex -space-x-3 hover:-space-x-1 transition-all duration-500 cursor-pointer min-w-max px-2 md:justify-end">
-                  {/* Client Logos using Unsplash Placeholders as in the original */}
-                  <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[1] transition-transform hover:scale-110 hover:z-[20]">
-                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 1" className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[2] transition-transform hover:scale-110 hover:z-[20]">
-                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 2" className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[3] transition-transform hover:scale-110 hover:z-[20]">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 3" className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[4] transition-transform hover:scale-110 hover:z-[20]">
-                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 4" className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
-                  </div>
-                  <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[5] transition-transform hover:scale-110 hover:z-[20]">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 5" className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
-                  </div>
+                <div className="flex -space-x-3 hover:-space-x-1 transition-all duration-500 min-w-max px-2 md:justify-end">
+                  {/* Brand logo stack */}
+                  <a href="https://www.bca.co.id/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-white flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[1] transition-transform hover:scale-110 hover:z-[20]">
+                    <img src="/BCA.svg" alt="BCA Logo" className="w-full h-full object-contain p-1.5 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
+                  </a>
+                  <a href="https://www.bcasyariah.co.id/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-white flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[2] transition-transform hover:scale-110 hover:z-[20]">
+                    <img src="/bca-syariah.svg" alt="BCA Syariah Logo" className="w-full h-full object-contain p-1 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
+                  </a>
+                  <a href="https://solana.com/id" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-black flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[3] transition-transform hover:scale-110 hover:z-[20]">
+                    <img src="/solana.svg" alt="Solana Logo" className="w-full h-full object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
+                  </a>
+                  <a href="https://exactacal.com/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-white flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[4] transition-transform hover:scale-110 hover:z-[20]">
+                    <img src="/exacta.png" alt="Exacta Logo" className="w-full h-full object-contain p-1.5 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
+                  </a>
+                  <a href="https://ondo.foundation/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-white flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[5] transition-transform hover:scale-110 hover:z-[20]">
+                    <img src="/Ondo.svg" alt="Ondo Logo" className="w-full h-full object-contain p-2.5 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy" />
+                  </a>
 
                   <div className="h-8 md:h-10 shrink-0 px-4 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[6] transition-transform hover:scale-105 hover:z-[20]">
                     <span className="text-[8px] md:text-[10px] font-bold text-gold-base tracking-widest uppercase">Many More</span>

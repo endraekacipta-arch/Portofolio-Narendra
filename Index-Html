@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narendra Eka Cipta | Digital Growth Partner</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 5s ease-in-out infinite',
+                        'reveal': 'reveal 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards',
+                        'line-flow': 'line-flow 12s linear infinite',
+                        'text-shine': 'text-shine 6s ease-in-out infinite alternate',
+                        'text-glow-pulse': 'text-glow-pulse 5s ease-in-out infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                        'trace-l': 'trace-l 3s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-25px)' },
+                        },
+                        reveal: {
+                            '0%': { opacity: '0', transform: 'translateY(40px) scale(0.98)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        },
+                        'line-flow': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        'text-shine': {
+                            '0%': { 'background-position': '0% 50%' },
+                            '100%': { 'background-position': '100% 50%' },
+                        },
+                        'text-glow-pulse': {
+                            '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(234, 179, 8, 0.3))' },
+                            '50%': { filter: 'drop-shadow(0 0 15px rgba(234, 179, 8, 0.5))' },
+                        },
+                        'trace-l': {
+                            '0%': { top: '0', left: '-1px', transform: 'translate(-50%, -50%)', opacity: '0' },
+                            '10%': { top: '10%', left: '-1px', transform: 'translate(-50%, -50%)', opacity: '1' },
+                            '50%': { top: 'calc(100% - 1px)', left: '-1px', transform: 'translate(-50%, -50%)' },
+                            '55%': { top: 'calc(100% - 1px)', left: '4px', transform: 'translate(-50%, -50%)' },
+                            '90%': { top: 'calc(100% - 1px)', left: '100%', transform: 'translate(-50%, -50%)', opacity: '1' },
+                            '100%': { top: 'calc(100% - 1px)', left: '100%', transform: 'translate(-50%, -50%)', opacity: '0' }
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#FBBF24',
+                            500: '#D97706',
+                            600: '#B45309',
+                            light: '#FDE047',
+                            base: '#EAB308',
+                            dark: '#A16207',
+                        },
+                        dark: {
+                            950: '#020202',
+                            900: '#0a0a0a',
+                            800: '#141414',
+                            700: '#1f1f1f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #020202;
+            color: #e5e5e5;
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* --- BACKGROUND SYSTEM --- */
+        .bg-pattern {
+            position: fixed; inset: 0; z-index: -4;
+            background-image: radial-gradient(rgba(234, 179, 8, 0.22) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+            pointer-events: none;
+        }
+        .bg-lines {
+            position: fixed; inset: 0; z-index: -3; display: flex;
+            justify-content: space-around; pointer-events: none; opacity: 0.18;
+        }
+        .bg-line {
+            width: 1px; height: 100%; position: relative; overflow: hidden;
+            background: linear-gradient(to bottom, transparent, rgba(234, 179, 8, 0.4), transparent);
+        }
+        .bg-line::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 180px;
+            background: linear-gradient(to bottom, transparent, #EAB308, transparent);
+            animation: line-flow 8s infinite ease-in-out;
+        }
+        .orb-container {
+            position: fixed; inset: 0; z-index: -2; filter: blur(110px);
+            opacity: 0.75; pointer-events: none; will-change: transform;
+        }
+        .orb { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(234, 179, 8, 0.18) 0%, transparent 70%); }
+        .orb-1 { top: -5%; left: 5%; width: 650px; height: 650px; animation: orb-float 20s infinite alternate; }
+        .orb-2 { bottom: -5%; right: 5%; width: 750px; height: 750px; animation: orb-float 25s infinite alternate-reverse; }
+        @keyframes orb-float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 80px) scale(1.2); }
+        }
+        .bg-vignette { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.7) 100%); pointer-events: none; }
+        .bg-grain { position: fixed; inset: 0; z-index: -1; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.04; pointer-events: none; }
+
+        /* --- UI ELEMENTS --- */
+        .text-gold {
+            background: linear-gradient(90deg, #A16207 0%, #D97706 25%, #FBBF24 50%, #D97706 75%, #A16207 100%);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; animation: text-shine 6s ease-in-out infinite alternate, text-glow-pulse 5s ease-in-out infinite;
+        }
+        .bg-gold-gradient { background: linear-gradient(135deg, #FDE047 0%, #EAB308 50%, #A16207 100%); }
+        .perspective-2000 { perspective: 2000px; }
+        
+        @keyframes border-spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+        .neon-glow-container { position: absolute; inset: -2px; z-index: 0; overflow: hidden; border-radius: 6px; }
+        .neon-glow-line {
+            position: absolute; top: 50%; left: 50%; width: 250%; height: 250%;
+            background: conic-gradient(from 0deg, transparent 0%, transparent 80%, #EAB308 95%, #FDE047 100%);
+            animation: border-spin 3s linear infinite; filter: blur(1.5px) drop-shadow(0 0 8px #EAB308);
+        }
+        .neon-glow-mask { position: absolute; inset: 2px; background: #0a0a0a; border-radius: 4px; z-index: 1; }
+
+        .btn-premium-gold { position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-premium-gold::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); transition: 0.5s;
+        }
+        .btn-premium-gold:hover::before { left: 100%; }
+        .btn-premium-gold:hover { box-shadow: 0 0 50px rgba(234, 179, 8, 0.5); transform: translateY(-8px) scale(1.02); }
+
+        .reveal-delay-1 { animation-delay: 0.15s; }
+        .reveal-delay-2 { animation-delay: 0.35s; }
+        .reveal-delay-3 { animation-delay: 0.55s; }
+        .reveal-delay-4 { animation-delay: 0.75s; }
+        .reveal-delay-5 { animation-delay: 0.95s; }
+        .reveal-delay-6 { animation-delay: 1.15s; }
+
+        #smart-nav { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-hidden { transform: translateY(-100%); }
+
+        /* --- CAPABILITIES STYLES --- */
+        .capability-tab {
+            position: relative; padding: 10px 0; cursor: pointer; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.8; color: #e5e5e5; font-weight: 500; display: flex; align-items: center;
+        }
+        .capability-tab .num { font-size: 0.7rem; margin-right: 8px; font-family: serif; opacity: 0.5; transition: all 0.5s; }
+        .capability-tab:hover { opacity: 1; transform: translateY(-2px); color: #ffffff; }
+        .capability-tab.active { opacity: 1; color: #EAB308; font-weight: 700; }
+        .capability-tab.active .num { opacity: 1; color: #EAB308; }
+        .capability-tab::after {
+            content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%) scaleX(0);
+            width: 100%; height: 1px; background: linear-gradient(90deg, transparent, #EAB308, transparent);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .capability-tab.active::after { transform: translateX(-50%) scaleX(1); }
+        
+        .capability-pane { display: none; animation: paneReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .capability-pane.active { display: block; }
+        @keyframes paneReveal {
+            from { opacity: 0; transform: translateY(30px) scale(0.99); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 2px; position: relative; overflow: hidden;
+        }
+        .glass-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.07), transparent 40%);
+            z-index: 0; opacity: 0; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
+        }
+        .glass-card:hover::before { opacity: 1; }
+        .glass-card > * { position: relative; z-index: 1; }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- FILTER GALLERY STYLES --- */
+        .gallery-item { animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .gallery-item img { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1.5s ease; }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .filter-btn { transition: all 0.3s ease; }
+        .filter-btn.active { background-color: rgba(234, 179, 8, 0.15); border-color: rgba(234, 179, 8, 0.5); color: #FDE047; }
+
+        /* --- GLOWING SECTION DIVIDER --- */
+        .section-divider-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 50%; max-width: 500px; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(253, 224, 71, 0.9) 50%, transparent);
+            box-shadow: 0 2px 10px rgba(234, 179, 8, 0.7), 0 10px 30px rgba(234, 179, 8, 0.3);
+            z-index: 0; pointer-events: none; animation: lamp-glow 3.5s ease-in-out infinite alternate;
+        }
+        .section-divider-glow::after {
+            content: ''; position: absolute; top: 1px; left: 50%; transform: translateX(-50%); width: 100%; height: 100px; 
+            background: radial-gradient(ellipse at top, rgba(234, 179, 8, 0.15) 0%, transparent 70%); pointer-events: none;
+        }
+        @keyframes lamp-glow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        /* --- DYNAMIC SCROLL ANIMATIONS --- */
+        .fade-in-up {
+            opacity: 0; transform: translateY(40px) scale(0.98) translateZ(0); will-change: opacity, transform;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.is-visible { opacity: 1; transform: translateY(0) scale(1) translateZ(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* --- RESPONSIVE MASKS --- */
+        .hero-bg-mask {
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 40%, black 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 40%, black 100%);
+        }
+        @media (min-width: 1024px) {
+            .hero-bg-mask {
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, rgba(0,0,0,0.6) 70%, black 100%);
+                mask-image: linear-gradient(to right, transparent 0%, transparent 35%, rgba(0,0,0,0.6) 70%, black 100%);
+            }
+        }
+        .hologram-mask {
+            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+            mask-image: radial-gradient(circle, black 30%, transparent 70%);
+        }
+
+        /* --- ENHANCED MOBILE UI OPTIMIZATIONS --- */
+        @media (max-width: 639px) {
+            input, textarea, select { font-size: 16px !important; }
+            #hero { padding-top: 120px !important; min-height: 100svh !important; padding-bottom: 80px !important; }
+            #services .mb-12 > .flex {
+                flex-direction: row !important; flex-wrap: nowrap !important; overflow-x: auto !important;
+                justify-content: flex-start !important; padding-bottom: 1rem !important; gap: 0.75rem !important;
+                scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;
+                margin-left: -1.5rem; margin-right: -1.5rem; padding-left: 1.5rem !important; padding-right: 1.5rem !important;
+            }
+            #services .mb-12 > .flex::-webkit-scrollbar { display: none; }
+            .capability-tab {
+                flex-shrink: 0 !important; background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px 16px !important;
+                border-radius: 8px; display: flex; align-items: center;
+            }
+            .capability-tab.active { background: rgba(234, 179, 8, 0.1); border-color: rgba(234, 179, 8, 0.3); }
+            .capability-tab::after { display: none !important; }
+            #gallery-grid { gap: 12px !important; }
+            #gallery-grid .gallery-item .absolute.bottom-0 { padding: 14px 12px !important; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%) !important; }
+            #gallery-grid .gallery-item .absolute.bottom-0 span.inline-block { font-size: 8px !important; padding: 4px 6px !important; margin-bottom: 6px !important; letter-spacing: 0.1em !important; border-radius: 3px !important; }
+            #gallery-grid .gallery-item .absolute.bottom-0 h3 { font-size: 13px !important; line-height: 1.3 !important; }
+            #gallery-grid .many-more-card h3 { font-size: 16px !important; margin-bottom: 6px !important; }
+            #gallery-grid .many-more-card span.inline-flex { font-size: 9px !important; }
+            #connect button[type="submit"] { padding-top: 1rem !important; padding-bottom: 1rem !important; font-size: 12px !important; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-base selection:text-dark-900 overflow-x-hidden">
+
+    <!-- Background Layers -->
+    <div class="bg-pattern"></div>
+    <div class="bg-lines">
+        <div class="bg-line line-1"></div>
+        <div class="bg-line line-2" style="margin-top: 20vh;"></div>
+        <div class="bg-line line-3" style="margin-top: -10vh;"></div>
+    </div>
+    <div class="orb-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    <div class="bg-vignette"></div>
+    <div class="bg-grain"></div>
+
+    <!-- Navigation -->
+    <nav id="smart-nav" class="fixed w-full z-50 bg-dark-950/40 backdrop-blur-2xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-serif text-xl md:text-2xl font-bold tracking-wider text-white uppercase opacity-0 animate-reveal">NARE<span class="text-gold-base">N</span>DRA<span class="text-gold-base">.</span></span>
+                </div>
+                <div class="hidden lg:flex space-x-10 xl:space-x-12 items-center opacity-0 animate-reveal reveal-delay-2">
+                    <a href="#about" class="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">
+                        About
+                        <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-gold-base transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#services" class="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">
+                        Capabilities
+                        <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-gold-base transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#experience" class="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">
+                        Experience
+                        <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-gold-base transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#business" class="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">
+                        Ventures
+                        <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-gold-base transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#portfolio" class="group relative text-[10px] xl:text-[11px] font-semibold text-gray-400 hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase">
+                        Gallery
+                        <span class="absolute -bottom-1 left-1/2 w-0 h-[1px] bg-gold-base transition-all duration-500 ease-out group-hover:w-full group-hover:left-0"></span>
+                    </a>
+                    <a href="#connect" class="px-6 xl:px-8 py-2.5 bg-transparent text-gold-light border border-gold-base/30 hover:bg-gold-base hover:text-dark-900 font-bold tracking-[0.15em] uppercase text-[9px] xl:text-[10px] transition-all duration-500 rounded-sm whitespace-nowrap">
+                        Talk with me
+                    </a>
+                </div>
+                <div class="lg:hidden">
+                    <a href="#connect" class="px-4 py-2 border border-gold-base/30 text-gold-light text-[9px] font-bold tracking-widest uppercase rounded-sm">Talk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative flex items-center overflow-hidden w-full min-h-[85vh] lg:min-h-[100vh]">
+        
+        <!-- Background -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0 hero-bg-mask">
+            <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[120%] sm:w-[100%] md:w-[80%] lg:w-[60%] aspect-square bg-gold-base/10 blur-[80px] lg:blur-[120px] rounded-full"></div>
+            
+            <img 
+                src="https://res.cloudinary.com/dfpbzjpll/image/upload/q_auto/f_auto/v1780892948/ChatGPT_Image_Jun_8_2026_11_28_45_AM_c4eie8.png" 
+                alt="AI Growth Background"
+                class="absolute top-0 right-0 w-full lg:w-[85%] h-full object-cover opacity-20 sm:opacity-40 md:opacity-60 lg:opacity-100 object-center lg:object-right"
+            />
+            
+            <!-- Mobile Gradients -->
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-950 to-transparent z-10 lg:hidden"></div>
+            <div class="absolute bottom-0 left-0 w-full h-32 md:h-40 bg-gradient-to-t from-dark-950 to-transparent z-10"></div>
+        </div>
+
+        <!-- Konten Teks Hero -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full pt-10 lg:pt-0">
+            <div class="flex flex-col lg:w-2/3">
+                
+                <!-- Badge -->
+                <div class="opacity-0 animate-reveal flex justify-center lg:justify-start mb-6 md:mb-8 lg:mb-12">
+                    <div class="bg-gold-base/10 backdrop-blur-md border border-gold-base/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                        <span class="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-gold-light tracking-[0.2em] uppercase whitespace-nowrap">Growth Engine</span>
+                    </div>
+                </div>
+
+                <div class="opacity-0 animate-reveal reveal-delay-1 flex items-center justify-center lg:justify-start space-x-3 mb-5 sm:mb-6 md:mb-8">
+                    <div class="w-6 sm:w-8 md:w-12 h-[1px] bg-gold-base"></div>
+                    <h2 class="text-gold-base font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-[9px] sm:text-[10px] md:text-xs uppercase text-center">Digital Growth Partner</h2>
+                    <div class="w-6 sm:w-8 h-[1px] bg-gold-base lg:hidden"></div>
+                </div>
+                
+                <!-- Nama -->
+                <h1 class="text-center lg:text-left opacity-0 animate-reveal reveal-delay-2 font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-bold text-white leading-[1.1] md:leading-[1.05] mb-6 md:mb-8 tracking-tight drop-shadow-lg">
+                    Narendra <br class="hidden sm:block" />
+                    <span class="text-gold inline-block sm:ml-8 lg:ml-32 pb-1 sm:pb-2 md:pb-4 hover:scale-[1.02] transition-transform duration-500">Eka Cipta</span>
+                </h1>
+                
+                <!-- Tags -->
+                <div class="opacity-0 animate-reveal reveal-delay-3 flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 mb-6 sm:mb-8 md:mb-10 max-w-sm sm:max-w-full mx-auto lg:mx-0">
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md border border-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-colors duration-300 cursor-default">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gold-base shadow-[0_0_8px_#EAB308]"></span>
+                        <span class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-gray-300 tracking-widest uppercase mt-0.5">AI Enthusiast</span>
+                    </div>
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-md border border-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full transition-colors duration-300 cursor-default">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gold-base shadow-[0_0_8px_#EAB308]"></span>
+                        <span class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-gray-300 tracking-widest uppercase mt-0.5">Cinematic Ads</span>
+                    </div>
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-dark-900/80 backdrop-blur-md border border-gold-base/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.1)]">
+                        <span class="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-base opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-gold-base"></span>
+                        </span>
+                        <span class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-gold-light tracking-widest uppercase mt-0.5">Open to Work</span>
+                    </div>
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-dark-900/80 backdrop-blur-md border border-green-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.1)]">
+                        <span class="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 md:h-2 md:w-2 bg-green-500"></span>
+                        </span>
+                        <span class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-green-400 tracking-widest uppercase mt-0.5">Collaboration</span>
+                    </div>
+                </div>
+
+                <!-- Intro -->
+                <p class="text-center lg:text-left opacity-0 animate-reveal reveal-delay-4 text-xs sm:text-sm md:text-lg text-gray-300 max-w-[280px] sm:max-w-md md:max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed mb-8 md:mb-12 drop-shadow-md">
+                    With over 5 years of experience as an AI enthusiast and digital strategist, <br class="hidden md:block"/>
+                    I serve as a dedicated growth partner, combining smart AI workflows with conversion-driven web experiences to deliver meaningful impact and valuable results.
+                </p>
+                
+                <!-- Buttons -->
+                <div class="opacity-0 animate-reveal reveal-delay-5 flex flex-col sm:flex-row justify-center lg:justify-start items-center space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6 mb-8 md:mb-10 w-full max-w-[260px] sm:max-w-none mx-auto lg:mx-0">
+                    <a href="#services" class="btn-premium-gold w-full sm:w-auto px-6 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-5 bg-gold-gradient text-dark-900 font-extrabold tracking-[0.1em] sm:tracking-[0.15em] uppercase text-[10px] sm:text-xs rounded-sm text-center shadow-lg">
+                        Explore Capabilities
+                    </a>
+                    <a href="#" class="group w-full sm:w-auto flex items-center justify-center space-x-3 sm:space-x-4 px-6 sm:px-8 py-3.5 sm:py-4 md:py-5 border border-white/10 hover:border-gold-base/50 bg-white/5 backdrop-blur-md rounded-sm transition-all duration-500 text-white hover:text-gold-base">
+                        <span class="font-bold tracking-[0.1em] uppercase text-[10px] sm:text-xs">Download CV</span>
+                        <i data-lucide="download" class="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gold-base transform group-hover:scale-110"></i>
+                    </a>
+                </div>
+                
+                <!-- Experience Stats -->
+                <div class="opacity-0 animate-reveal reveal-delay-6 relative flex items-center justify-center lg:justify-start space-x-6 sm:space-x-8 md:space-x-12 mt-4 sm:mt-6 pt-6 sm:pt-8 w-full max-w-[280px] sm:max-w-lg mx-auto lg:mx-0">
+                    <div class="absolute top-0 left-1/2 lg:-left-6 -translate-x-1/2 lg:translate-x-0 w-full lg:w-[110%] h-[1px] bg-gradient-to-r from-transparent via-gold-light to-transparent lg:from-transparent lg:via-gold-base lg:to-transparent z-20 animate-pulse"></div>
+
+                    <div class="flex flex-col items-center lg:items-start group cursor-default relative z-30">
+                        <p class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-none mb-1.5 sm:mb-2 text-white group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_12px_rgba(253,224,71,0.8)]">10+</p>
+                        <p class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap group-hover:text-gray-200 transition-colors duration-500">Years Pro Experience</p>
+                    </div>
+                    
+                    <div class="w-[1px] h-8 sm:h-10 md:h-12 bg-gradient-to-b from-gold-base/50 to-transparent relative z-30"></div>
+                    
+                    <div class="flex flex-col items-center lg:items-start group cursor-default relative z-30">
+                        <p class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold leading-none mb-1.5 sm:mb-2 text-white group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_12px_rgba(253,224,71,0.8)]">5+</p>
+                        <p class="text-[7.5px] sm:text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap group-hover:text-gray-200 transition-colors duration-500">Years AI Experience</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-12 md:py-24 relative overflow-hidden">
+        
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <div class="absolute inset-0 bg-dark-950/50 z-10"></div>
+            <img 
+                src="https://res.cloudinary.com/dfpbzjpll/image/upload/q_auto/f_auto/v1780894014/ChatGPT_Image_Jun_8_2026_11_46_34_AM_p7pcxt.png" 
+                alt="About Me Background"
+                class="absolute top-0 left-0 w-full h-full object-cover opacity-60 md:opacity-80 object-center"
+            />
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-950 to-transparent z-20"></div>
+            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-dark-950 to-transparent z-20"></div>
+        </div>
+
+        <div class="section-divider-glow z-30"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 md:px-8 relative z-30">
+            <!-- CONTENT SECTION -->
+            <div class="fade-in-up delay-200 flex flex-col items-center text-center">
+                <!-- Judul -->
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <div class="w-10 h-[1px] bg-gold-base/60"></div>
+                    <span class="text-gold-base font-bold tracking-[0.3em] text-[10px] md:text-sm uppercase">About Me</span>
+                    <div class="w-10 h-[1px] bg-gold-base/60"></div>
+                </div>
+                
+                <!-- Paragraf -->
+                <div class="text-gray-100 text-[14px] md:text-lg font-light leading-relaxed mb-8 md:mb-12 max-w-2xl md:max-w-3xl mx-auto space-y-4 md:space-y-6">
+                    <p>
+                        I am <span class="text-gold font-bold">Narendra Eka Cipta</span>, a digital enthusiast with a strong foundation in English Literature from STBA JIA. My professional journey has taken me through diverse landscapes—from the fast-paced world of communications to the structured environments of banking and finance, and eventually into the decentralized future of Web 3.0.
+                    </p>
+                    <p>
+                        With <span class="text-gold font-bold">5+ years as an AI enthusiast and 10+ years of professional experience</span> across Digital Marketing and Finance, I have developed robust expertise in driving growth. My core competencies include <span class="text-gold font-medium">client relationship management, web development, cinematic visual creation, digital marketing, and intelligent automation</span>. <span class="text-white font-medium">Leveraging my competencies and experience</span>, I bridge the gap between complex digital needs and real-life goals—<span class="opacity-80">using AI to keep things simple and effective.</span>
+                    </p>
+                </div>
+                
+                <!-- Kartu Keahlian -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-lg md:max-w-3xl mx-auto text-left w-full px-2 md:px-0">
+                    <div class="glass-card flex items-start space-x-3 md:space-x-4 group p-4 md:p-6 border border-white/5 hover:border-gold-base/40 transition-colors duration-500 rounded-sm bg-black/20 md:bg-transparent">
+                        <div class="p-2 md:p-3 bg-white/5 border border-white/10 rounded-sm group-hover:border-gold-base/40 transition-colors shrink-0">
+                            <i data-lucide="book-open" class="w-4 h-4 md:w-5 md:h-5 text-gold-base"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-[11px] md:text-sm uppercase tracking-wider mb-1 md:mb-2">Willing to Learn</h4>
+                            <p class="text-gray-400 md:text-gray-300 text-[11px] md:text-sm leading-snug md:leading-relaxed italic">"I have failed more times than the average person has even tried."</p>
+                        </div>
+                    </div>
+                    <div class="glass-card flex items-start space-x-3 md:space-x-4 group p-4 md:p-6 border border-white/5 hover:border-gold-base/40 transition-colors duration-500 rounded-sm bg-black/20 md:bg-transparent">
+                        <div class="p-2 md:p-3 bg-white/5 border border-white/10 rounded-sm group-hover:border-gold-base/40 transition-colors shrink-0">
+                            <i data-lucide="zap" class="w-4 h-4 md:w-5 md:h-5 text-gold-base"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-[11px] md:text-sm uppercase tracking-wider mb-1 md:mb-2">Adaptive Strategy</h4>
+                            <p class="text-gray-400 md:text-gray-300 text-[11px] md:text-sm leading-snug md:leading-relaxed">I adjust as the digital world shifts, ensuring everything stays relevant and real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End content -->
+        </div> <!-- End container -->
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section id="services" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="section-divider-glow"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="flex flex-col items-center text-center mb-12 md:mb-16 fade-in-up">
+                <div class="flex items-center space-x-6 mb-6">
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                    <span class="text-gold-base font-bold tracking-[0.4em] text-[10px] md:text-sm uppercase">My Expertise</span>
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                </div>
+                <h2 class="font-serif text-3xl md:text-6xl font-bold text-white tracking-tight">Core <span class="text-gold italic">Capabilities</span></h2>
+            </div>
+            
+            <div class="mb-12 md:mb-20 fade-in-up delay-100 w-full">
+                <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 md:border-b border-white/5 px-4 pb-2 w-full">
+                    <div class="capability-tab active whitespace-nowrap text-[10px] md:text-xs uppercase tracking-[0.4em]" onclick="switchCapability(this, 'cap-web')">
+                        <span class="num">01</span>Web Development
+                    </div>
+                    <div class="capability-tab whitespace-nowrap text-[10px] md:text-xs uppercase tracking-[0.4em]" onclick="switchCapability(this, 'cap-cinema')">
+                        <span class="num">02</span>Cinematic Content
+                    </div>
+                    <div class="capability-tab whitespace-nowrap text-[10px] md:text-xs uppercase tracking-[0.4em]" onclick="switchCapability(this, 'cap-auto')">
+                        <span class="num">03</span>
+                        <div class="flex flex-col text-left leading-tight mt-0.5">
+                            <span>Automation</span>
+                            <span class="text-[6.5px] md:text-[7.5px] opacity-70 tracking-[0.2em] mt-1 uppercase">Workflows</span>
+                        </div>
+                    </div>
+                    <div class="capability-tab whitespace-nowrap text-[10px] md:text-xs uppercase tracking-[0.4em]" onclick="switchCapability(this, 'cap-info')">
+                        <span class="num">04</span>UI/UX
+                    </div>
+                </div>
+            </div>
+            
+            <div id="capability-display" class="min-h-[400px] max-w-5xl mx-auto px-2 md:px-4 fade-in-up delay-200">
+                
+                <div id="cap-web" class="capability-pane active glass-card p-6 md:p-12">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-serif text-2xl md:text-4xl text-white mb-6 leading-tight uppercase tracking-tight">Architecting Your Digital Home</h4>
+                        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center md:justify-start gap-2 mb-10 w-full">
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Full-stack Developer</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Frontend Developer</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Backend developer</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">CSS</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Next.js</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Tailwind</span>
+                        </div>
+                        <p class="text-gray-100 text-sm md:text-lg font-light leading-relaxed mb-12 max-w-3xl mx-auto md:mx-0">
+                            I transform your vision into a purposeful digital presence. I craft high-performance, fluidly animated experiences that go beyond code to create meaningful engagement for every visitor.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12 border-t border-white/5 pt-12 text-left">
+                            <div>
+                                <p class="text-gold-base font-bold text-xs md:text-sm uppercase tracking-[0.3em] mb-6 flex items-center">
+                                    <span class="w-6 h-[1px] bg-gold-base mr-3"></span>Perfect for:
+                                </p>
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Small-to-Mid Business owner aiming for scale.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Personal brand & creative portfolios.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sm:pt-11">
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Art & photo galleries for showcase.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Educational hubs & hobby platforms.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="cap-cinema" class="capability-pane glass-card p-6 md:p-12">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-serif text-2xl md:text-4xl text-white mb-6 uppercase tracking-tight">Visual Storytelling</h4>
+                        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center md:justify-start gap-2 mb-10 w-full">
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Cinematic Image</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Cinematic Video</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">User Generated Content AI</span>
+                        </div>
+                        <p class="text-gray-100 text-sm md:text-lg font-light leading-relaxed mb-12 mx-auto md:mx-0 max-w-2xl">
+                            I specialize in high-quality video and image production designed to capture attention instantly and build strong brand desire. By blending artistry with AI innovation, I create visuals that don't just showcase products, but tell compelling stories.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12 border-t border-white/5 pt-12 text-left">
+                            <div>
+                                <p class="text-gold-base font-bold text-xs md:text-sm uppercase tracking-[0.3em] mb-6 flex items-center">
+                                    <span class="w-6 h-[1px] bg-gold-base mr-3"></span>Perfect for:
+                                </p>
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>E-commerce brands needing premium visuals.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Content creators seeking a cinematic edge.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sm:pt-11">
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Digital Ad campaigns and social media features.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-400 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Storytelling for high-impact brand awareness.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cap-auto" class="capability-pane glass-card p-6 md:p-12">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-serif text-2xl md:text-4xl text-white mb-6 uppercase tracking-tight">Intelligent Automation</h4>
+                        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center md:justify-start gap-2 mb-10 w-full">
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">AI Automation</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Code Automation</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Workflow Systems</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">AI Chatbots</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Process Optimization</span>
+                        </div>
+                        <p class="text-gray-100 text-sm md:text-lg font-light leading-relaxed mx-auto md:mx-0 max-w-2xl mb-12">
+                            I build robust, automated workflows that eliminate manual tasks and accelerate business operations. By seamlessly connecting diverse apps and leveraging AI, I create scalable systems that save hundreds of hours, allowing you to focus on high-level growth rather than repetitive admin work.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12 border-t border-white/5 pt-12 text-left">
+                            <div>
+                                <p class="text-gold-base font-bold text-xs md:text-sm uppercase tracking-[0.3em] mb-6 flex items-center">
+                                    <span class="w-6 h-[1px] bg-gold-base mr-3"></span>Perfect for:
+                                </p>
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Founders wanting to put operations on autopilot.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Sales teams requiring automated lead nurturing.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sm:pt-11">
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Agencies looking to scale without adding headcount.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>E-commerce stores needing seamless fulfillment flows.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="cap-info" class="capability-pane glass-card p-6 md:p-12">
+                    <div class="text-center md:text-left">
+                        <h4 class="font-serif text-2xl md:text-4xl text-white mb-6 uppercase tracking-tight">Intuitive Experiences</h4>
+                        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center md:justify-start gap-2 mb-10 w-full">
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">User Research</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Wireframing</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Prototyping</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Interaction Design</span>
+                            <span class="block w-full sm:w-auto text-center px-3 py-2 sm:py-1.5 md:py-1 bg-gold-base/5 border border-gold-base/20 rounded-sm text-[9px] font-bold text-gold-base uppercase tracking-widest hover:bg-gold-base/10 transition-colors">Usability Testing</span>
+                        </div>
+                        <p class="text-gray-100 text-sm md:text-lg font-light leading-relaxed mx-auto md:mx-0 max-w-2xl mb-12">
+                            I craft intuitive, user-centric interfaces that seamlessly blend aesthetics with functionality. By focusing on user behavior and strategic design principles, I create engaging digital experiences that drive both conversion and customer satisfaction.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12 border-t border-white/5 pt-12 text-left">
+                            <div>
+                                <p class="text-gold-base font-bold text-xs md:text-sm uppercase tracking-[0.3em] mb-6 flex items-center">
+                                    <span class="w-6 h-[1px] bg-gold-base mr-3"></span>Perfect for:
+                                </p>
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Startups building a scalable Minimum Viable Product (MVP).</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>E-commerce platforms aiming to boost conversion rates.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="sm:pt-11">
+                                <ul class="space-y-5">
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>SaaS companies needing clean, intuitive dashboards.</span>
+                                    </li>
+                                    <li class="flex items-start space-x-4 text-sm md:text-base text-gray-300 group">
+                                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-gold-base mt-0.5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                                        <span>Brands wanting to modernize legacy applications.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- HARD SKILLS / TECHNICAL ARSENAL -->
+            <div class="mt-16 md:mt-24 fade-in-up delay-200 max-w-6xl mx-auto border-t border-white/5 pt-16 md:pt-20">
+                <div class="flex items-center space-x-4 mb-10">
+                    <div class="w-10 h-[1px] bg-gold-base/60"></div>
+                    <h3 class="text-white font-serif text-xl md:text-3xl font-bold uppercase tracking-widest">Technical <span class="text-gold italic">Arsenal</span></h3>
+                    <div class="flex-grow h-[1px] bg-white/5"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+                    <!-- Baris 1: Automation, Ads, & Analytics -->
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="workflow" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Workflow Automation</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="activity" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Google Flow Ads</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="receipt" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Billing & Invoicing</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="pie-chart" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Google Analytics</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="search" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">SEO Optimization</h4>
+                    </div>
+
+                    <!-- Baris 2: AI, Content, & Ecosystem -->
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">AI Prompting</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="bot" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Google Gemini</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="cpu" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Claude Skill Opt.</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="pen-tool" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Copywriting</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="layers" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Google Stitch</h4>
+                    </div>
+
+                    <!-- Baris 3: Web Dev, UI/UX, & Office -->
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="code-2" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">React / Next.js</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="layout-template" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Frontend Dev</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="paintbrush-2" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Tailwind CSS</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">UI/UX Design</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="files" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Excel, Word, PPT</h4>
+                    </div>
+
+                    <!-- Baris 4: Web3, Data, & Visuals -->
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="coins" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Crypto Analytics</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="line-chart" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">TradingView Analytics</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Web3 Testing</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Data Visualization</h4>
+                    </div>
+
+                    <div class="glass-card group p-4 border border-white/5 hover:border-gold-base/40 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-1">
+                        <div class="p-2.5 bg-white/5 rounded-full mb-3 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="camera" class="w-5 h-5 text-gray-400 group-hover:text-gold-base transition-colors"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-[10px] md:text-xs uppercase tracking-widest">Cinematic Photo</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOFT SKILLS / PROFESSIONAL ACUMEN -->
+            <div class="mt-16 md:mt-24 fade-in-up delay-200 max-w-6xl mx-auto border-t border-white/5 pt-16 md:pt-20">
+                <div class="flex items-center space-x-4 mb-10">
+                    <div class="w-10 h-[1px] bg-gold-base/60"></div>
+                    <h3 class="text-white font-serif text-xl md:text-3xl font-bold uppercase tracking-widest">Professional <span class="text-gold italic">Acumen</span></h3>
+                    <div class="flex-grow h-[1px] bg-white/5"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="brain" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Strategic Thinking</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Aligning technical execution with overarching business goals.</p>
+                    </div>
+                    
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="puzzle" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Adaptive Problem Solving</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">De-escalating high-pressure client or operational situations seamlessly.</p>
+                    </div>
+                    
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="users" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Cross-functional Leadership</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Managing and motivating cross-disciplinary teams effectively.</p>
+                    </div>
+                    
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="handshake" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Client Relationship</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Building trust and managing expectations for long-term partnerships.</p>
+                    </div>
+                    
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="message-square" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Persuasive Communication</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Presenting complex data to non-technical stakeholders with clarity.</p>
+                    </div>
+
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500">
+                        <div class="p-3 bg-white/5 rounded-sm inline-block mb-4 group-hover:bg-gold-base/20 transition-colors">
+                            <i data-lucide="lightbulb" class="w-6 h-6 text-gold-base group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest mb-2">Agile Learning</h4>
+                        <p class="text-gray-400 text-xs leading-relaxed">Rapidly mastering new technologies (AI/Web3) to keep strategies cutting-edge.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCE SECTION -->
+    <section id="experience" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="section-divider-glow"></div>
+        <div class="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="flex flex-col items-center text-center mb-12 md:mb-16 fade-in-up">
+                <div class="flex items-center space-x-6 mb-6">
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                    <span class="text-gold-base font-bold tracking-[0.4em] text-[10px] md:text-sm uppercase">Corporate Background</span>
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                </div>
+                <h2 class="font-serif text-3xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+                    Work <span class="text-gold italic">Experience</span>
+                </h2>
+            </div>
+
+            <div class="flex flex-col mt-4 md:mt-8">
+                
+                <!-- JOB 1 -->
+                <div class="group py-8 md:py-16 border-b border-white/10 hover:border-gold-base/40 transition-colors flex flex-col md:flex-row gap-6 md:gap-16 items-start fade-in-up delay-100">
+                    <div class="md:w-1/3 shrink-0 flex flex-col md:pr-8">
+                        <span class="inline-flex items-center space-x-3 text-gold-base text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3 md:mb-4 group-hover:translate-x-2 transition-transform duration-500">
+                            <span class="w-2 h-2 rounded-full bg-gold-base shadow-[0_0_8px_#EAB308]"></span>
+                            <span>Oct 2022 – Present</span>
+                        </span>
+                        <h4 class="text-xl md:text-2xl font-serif text-white font-bold mb-2 tracking-tight group-hover:text-gold-light transition-colors duration-500">PT Bank Central Asia Tbk</h4>
+                        <p class="text-xs md:text-sm text-gray-500 italic leading-relaxed">The largest public-listed private bank in Indonesia.</p>
+
+                        <div class="mt-6 relative pl-10">
+                            <div class="absolute left-2 -top-4 w-6 h-8 border-l-2 border-b-2 border-white/20 rounded-bl-md group-hover:border-gold-base/50 transition-colors duration-500">
+                                <div class="absolute w-[5px] h-[5px] rounded-full bg-white shadow-[0_0_12px_4px_#ffffff,0_0_25px_8px_#FDE047,0_0_40px_12px_#D97706] animate-trace-l"></div>
+                            </div>
+                            
+                            <span class="inline-block text-gold-base text-[8px] md:text-[9px] font-bold tracking-widest uppercase mb-1">Concurrent</span>
+                            <h4 class="text-lg md:text-2xl font-serif text-white font-bold mb-1 tracking-tight group-hover:text-gold-light transition-colors duration-500">PT Bank BCA Syariah</h4>
+                            <p class="text-[10px] md:text-xs text-gray-500 italic leading-relaxed">Subsidiary of PT Bank Central Asia Tbk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 glass-card bg-white/[0.02] md:bg-transparent p-5 md:p-8 rounded-md md:border-transparent group-hover:md:border-gold-base/20 transition-all duration-500 w-full">
+                        <h3 class="text-xl md:text-3xl font-serif text-white font-bold mb-6 group-hover:text-gold-light transition-colors">Customer Service Officer</h3>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="smartphone" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Serve customers as a Customer Service Representative via the BCA application.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="users" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Assist an average of 100+ customers daily with online account management.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="file-digit" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Process and input customer KYC data securely during account opening procedures.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="shield-alert" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Analyze and prevent potential financial losses resulting from various fraudulent activities.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="fingerprint" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Address critical security issues, including customer fraud, fake ID usage, and data theft.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="mail-warning" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Provide proactive guidance to help customers identify and avoid phishing attempts.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="message-square-text" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Handle customer complaints while emphasizing a customer-centric approach in delivering services.</span>
+                            </li>
+                        </ul>
+
+                        <div class="border-t border-white/10 pt-6 mt-6">
+                            <h4 class="text-sm md:text-base font-serif text-gold-base font-bold mb-4 flex items-center tracking-wide">
+                                <span class="w-4 h-[1px] bg-gold-base mr-3"></span>
+                                Syariah Banking Focus
+                            </h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                    <i data-lucide="languages" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                    <span class="leading-relaxed">Assist customers and address inquiries related to Syariah banking terminology and principles.</span>
+                                </li>
+                                <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                    <i data-lucide="book-open" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                    <span class="leading-relaxed">Educate customers on Syariah products and highlight their key differences from conventional banking.</span>
+                                </li>
+                                <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                    <i data-lucide="scroll" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                    <span class="leading-relaxed">Guide customers through specific Syariah banking contracts (Akad), such as Wadiah and Mudharabah, ensuring complete transparency.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JOB 2 -->
+                <div class="group py-8 md:py-16 border-b border-white/10 hover:border-gold-base/40 transition-colors flex flex-col md:flex-row gap-6 md:gap-16 items-start fade-in-up delay-200">
+                    <div class="md:w-1/3 shrink-0 flex flex-col md:pr-8">
+                        <span class="inline-flex items-center space-x-3 text-gold-base text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3 md:mb-4 group-hover:translate-x-2 transition-transform duration-500">
+                            <span class="w-2 h-2 rounded-full bg-gold-base/50 shadow-[0_0_8px_rgba(234,179,8,0.4)]"></span>
+                            <span>Jan 2021 – Oct 2022</span>
+                        </span>
+                        <h4 class="text-xl md:text-2xl font-serif text-white font-bold mb-2 tracking-tight group-hover:text-gold-light transition-colors">PT Prudential Life Assurance</h4>
+                        <p class="text-xs md:text-sm text-gray-500 italic leading-relaxed">A financial services company in the insurance sector headquartered in Jakarta.</p>
+                    </div>
+                    <div class="md:w-2/3 glass-card bg-white/[0.02] md:bg-transparent p-5 md:p-8 rounded-md md:border-transparent group-hover:md:border-gold-base/20 transition-all duration-500 w-full">
+                        <h3 class="text-xl md:text-3xl font-serif text-white font-bold mb-6 group-hover:text-gold-light transition-colors">Senior Associate</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="presentation" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Conducted product presentations for both retail and corporate insurance up to five times a week.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="trending-up" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Provided personalized financial guidance to clients regarding insurance policies and wealth management.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Conducted comprehensive insurance training sessions for the internal sales team.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="users-round" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Established, mentored, and led a high-performing team of three members.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="award" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Achieved a total team premium of Rp 1 billion within a single year.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="user-plus" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Generated an average of two new clients per month, significantly contributing to the team's success.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- JOB 3 -->
+                <div class="group py-8 md:py-16 border-b border-white/10 hover:border-gold-base/40 transition-colors flex flex-col md:flex-row gap-6 md:gap-16 items-start fade-in-up delay-200">
+                    <div class="md:w-1/3 shrink-0 flex flex-col md:pr-8">
+                        <span class="inline-flex items-center space-x-3 text-gold-base text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3 md:mb-4 group-hover:translate-x-2 transition-transform duration-500">
+                            <span class="w-2 h-2 rounded-full bg-gold-base/50 shadow-[0_0_8px_rgba(234,179,8,0.4)]"></span>
+                            <span>Jan 2015 – Jun 2020</span>
+                        </span>
+                        <h4 class="text-xl md:text-2xl font-serif text-white font-bold mb-2 tracking-tight group-hover:text-gold-light transition-colors">CV Twins Wedding Organizer</h4>
+                        <p class="text-xs md:text-sm text-gray-500 italic leading-relaxed">A wedding arrangement service.</p>
+                    </div>
+                    <div class="md:w-2/3 glass-card bg-white/[0.02] md:bg-transparent p-5 md:p-8 rounded-md md:border-transparent group-hover:md:border-gold-base/20 transition-all duration-500 w-full">
+                        <h3 class="text-xl md:text-3xl font-serif text-white font-bold mb-6 group-hover:text-gold-light transition-colors">Account Executive</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="megaphone" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Presented and pitched wedding services to both prospective and existing clients.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Managed up to 5 concurrent clients, assisting them from initial negotiations to event completion.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="bar-chart-3" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Analyzed post-event data and feedback to evaluate and improve consumer satisfaction.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="eye" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Supervised and ensured the flawless execution of events for every client.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="repeat" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Facilitated seamless communication and coordination between clients and external vendors.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="info" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Coordinated and followed up on critical information between internal teams and clients.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="star" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Consistently achieved an A+ satisfaction rating based on client questionnaires.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="share-2" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Initiated and successfully implemented a referral marketing program.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="gift" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Designed incentive benefits for clients who referred new business to the company.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Freelance Projects Grid -->
+            <div class="mt-12 md:mt-20 fade-in-up delay-200">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="w-8 h-[1px] bg-gold-base/60"></div>
+                    <h3 class="text-white font-serif text-lg md:text-xl font-bold uppercase tracking-widest">Notable Freelance Projects</h3>
+                    <div class="flex-grow h-[1px] bg-white/5"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Project 1: Ondo Finance -->
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500 hover:-translate-y-1 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[8px] md:text-[9px] font-bold text-gold-base uppercase tracking-widest rounded-sm group-hover:border-gold-base/30 transition-colors">Finance</span>
+                                <span class="text-gray-500 text-[9px] font-bold tracking-widest">2023 - 2024</span>
+                            </div>
+                            <h4 class="text-lg font-serif text-white font-bold mb-1 group-hover:text-gold-light transition-colors">Ondo Finance</h4>
+                            <p class="text-xs text-gray-400 italic mb-5">Early Beta Tester (Real World Assets)</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-4">
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Tested early tokenization products for Real World Assets (RWA), focusing on tokenized equities and PayPal USD (PYUSD) integrations.</span>
+                                </li>
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Explored the Ondo Chain testnet and ONDO DEX platform to check transaction flows, spot glitches, and improve user experience before the mainnet launch.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                            <span class="text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em]">Verified Contributor</span>
+                            <img src="Ondo Finance.png" alt="Ondo Finance Logo" class="h-6 object-contain mix-blend-screen" onerror="this.style.display='none'"/>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Tether -->
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500 hover:-translate-y-1 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[8px] md:text-[9px] font-bold text-gold-base uppercase tracking-widest rounded-sm group-hover:border-gold-base/30 transition-colors">Finance</span>
+                                <span class="text-gray-500 text-[9px] font-bold tracking-widest">2015 - 2015</span>
+                            </div>
+                            <h4 class="text-lg font-serif text-white font-bold mb-1 group-hover:text-gold-light transition-colors">Tether</h4>
+                            <p class="text-xs text-gray-400 italic mb-5">Testnet Evaluator (Solana Network)</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-4">
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Ran active testnet trials for stablecoin transfers on the Solana network to see how the infrastructure handles real-world speed and volume.</span>
+                                </li>
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Checked transaction speeds, confirmed gas fee accuracy, and made sure various crypto wallets connected smoothly before the updates went live.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: SMPN 5 Tambun Selatan -->
+                    <div class="glass-card group p-6 border border-white/5 hover:border-gold-base/40 transition-all duration-500 hover:-translate-y-1 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[8px] md:text-[9px] font-bold text-gold-base uppercase tracking-widest rounded-sm group-hover:border-gold-base/30 transition-colors">Education</span>
+                                <span class="text-gray-500 text-[9px] font-bold tracking-widest">2022 - 2023</span>
+                            </div>
+                            <h4 class="text-lg font-serif text-white font-bold mb-1 group-hover:text-gold-light transition-colors">SMPN 5 Tambun Selatan</h4>
+                            <p class="text-xs text-gray-400 italic mb-5">E-Book & Infographic Designer</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-4">
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Created a digital Biology e-book and a series of custom infographics designed specifically for junior high school students.</span>
+                                </li>
+                                <li class="flex items-start text-[11px] md:text-xs text-gray-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-gold-base shrink-0 mt-0.5 mr-2.5"></i>
+                                    <span class="leading-relaxed">Turned heavy textbook materials into colorful, easy-to-understand visuals that keep students focused and engaged in learning.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BUSINESS VENTURES -->
+    <section id="business" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="section-divider-glow"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="flex flex-col items-center text-center mb-12 md:mb-16 fade-in-up">
+                <div class="flex items-center space-x-6 mb-6">
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                    <span class="text-gold-base font-bold tracking-[0.4em] text-[10px] md:text-sm uppercase">Entrepreneurial Journey</span>
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                </div>
+                <h2 class="font-serif text-3xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+                    Business <span class="text-gold italic">Ventures</span>
+                </h2>
+                <p class="text-gray-400 text-xs md:text-sm mt-4 max-w-xl mx-auto tracking-wide font-light">
+                    Highlighting independent projects and freelance initiatives where I drive end-to-end digital growth, from strategy to execution.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto fade-in-up delay-100">
+                <div class="glass-card group p-6 md:p-10 border border-white/5 hover:border-gold-base/40 transition-colors duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="inline-flex items-center space-x-2 text-gold-base text-[9px] md:text-[10px] font-bold tracking-widest uppercase mb-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-base shadow-[0_0_8px_#EAB308]"></span>
+                                <span>2021 – Present</span>
+                            </span>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-serif text-white font-bold group-hover:text-gold-light transition-colors duration-500">Independent Consultant & Digital Strategist</h3>
+                            <h4 class="text-sm md:text-base text-gray-400 mt-1">Digital Marketing & Web Development</h4>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-full group-hover:bg-gold-base/20 transition-colors duration-500 shrink-0 ml-4">
+                            <i data-lucide="rocket" class="w-5 h-5 md:w-6 md:h-6 text-gold-base"></i>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm md:text-base text-gray-300 font-light leading-relaxed mb-8">
+                        Empowering brands by engineering end-to-end digital ecosystems. From data-driven marketing strategies to high-performance web development with cinematic images and video, I transform your business objectives into scalable, high-converting realities.
+                    </p>
+
+                    <div class="border-t border-white/10 pt-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="layout" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Developed <span class="text-white font-medium">websites and landing pages</span> for diverse needs, including personal hobbies, digital invitations, e-book, infographic showcases, educational platforms, and beyond.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Built automated workflows using AI Automation and Code Automation to optimize <span class="text-white font-medium">end-to-end business operations</span>.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="camera" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Produced <span class="text-white font-medium">cinematic brand images and videos</span> and AI-generated content to elevate client brand positioning.</span>
+                            </li>
+                            <li class="flex items-start text-xs md:text-sm text-gray-300 group/item">
+                                <i data-lucide="file-text" class="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform"></i>
+                                <span class="leading-relaxed">Streamlined <span class="text-white font-medium">business administration</span>, managing the preparation of professional quotations, project agreements, and invoices to ensure transparent and seamless client relations.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6 mt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-6 w-full">
+                        <div class="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest flex items-center shrink-0">
+                            <span class="w-4 h-[1px] bg-gold-base mr-3"></span>
+                            Trusted by <span class="text-white ml-1.5">Brands</span>
+                        </div>
+                        
+                        <div class="w-full md:w-auto overflow-x-auto hide-scrollbar pb-2 md:pb-0">
+                            <div class="flex -space-x-3 hover:-space-x-1 transition-all duration-500 cursor-pointer min-w-max px-2 md:justify-end">
+                                <!-- Logos -->
+                                <div class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[1] transition-transform hover:scale-110 hover:z-[20]">
+                                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 1" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy">
+                                </div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[2] transition-transform hover:scale-110 hover:z-[20]">
+                                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 2" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy">
+                                </div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[3] transition-transform hover:scale-110 hover:z-[20]">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 3" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy">
+                                </div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[4] transition-transform hover:scale-110 hover:z-[20]">
+                                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 4" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy">
+                                </div>
+                                <div class="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[5] transition-transform hover:scale-110 hover:z-[20]">
+                                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=100&h=100&auto=format&fit=crop" alt="Client Logo 5" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" loading="lazy">
+                                </div>
+
+                                <div class="h-8 md:h-10 shrink-0 px-4 rounded-full border-2 border-dark-900 bg-dark-800 flex items-center justify-center shadow-[0_0_10px_rgba(0,0,0,0.5)] z-[6] transition-transform hover:scale-105 hover:z-[20]">
+                                    <span class="text-[8px] md:text-[10px] font-bold text-gold-base tracking-widest uppercase">Many More</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="portfolio" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="section-divider-glow"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="flex flex-col items-center text-center mb-6 md:mb-10 fade-in-up">
+                <div class="flex items-center space-x-6 mb-6">
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                    <span class="text-gold-base font-bold tracking-[0.4em] text-[10px] md:text-sm uppercase">Comprehensive Showcase</span>
+                    <div class="w-10 md:w-12 h-[1px] bg-gold-base/60"></div>
+                </div>
+                <h2 class="font-serif text-3xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+                    My <span class="text-gold italic">Gallery</span>
+                </h2>
+                <p class="text-gray-400 text-xs md:text-sm mt-4 max-w-xl mx-auto tracking-wide font-light">Explore my curated digital campaigns, development projects, and visual storytelling pieces.</p>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 fade-in-up delay-200 mt-10">
+                
+                <!-- ITEM 1: Ar-Rauda -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop" alt="Ar-Rauda Mobile App" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">Mobile App</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">Ar-Rauda</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 2: BCA Auto-Scheduler -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" alt="BCA Auto-Scheduler" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-purple-600/20 backdrop-blur-md border border-purple-500/30 text-purple-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">Automation</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">BCA Auto-Scheduler</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 3: RenX CRM -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="RenX CRM" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 text-blue-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">Web Dev</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">RenX CRM</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 4: BCA Syariah Optimization-Report -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="BCA Syariah Optimization-Report" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-purple-600/20 backdrop-blur-md border border-purple-500/30 text-purple-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">Automation</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">BCA Syariah Opt-Report</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: TradingView Automation -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop" alt="TradingView Automation" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-green-600/20 backdrop-blur-md border border-green-500/30 text-green-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">FinTech</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">TradingView Automation</h3>
+                    </div>
+                </div>
+                
+                <!-- ITEM 6: AI-Agent Custom -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI-Agent Custom" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-indigo-600/20 backdrop-blur-md border border-indigo-500/30 text-indigo-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">AI Integration</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">AI-Agent Custom</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 7: CoinFinder -->
+                <div class="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900">
+                    <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=600&auto=format&fit=crop" alt="CoinFinder Deep Search Crypto" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                        <span class="inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-yellow-600/20 backdrop-blur-md border border-yellow-500/30 text-yellow-400 text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2">Web3 / Data</span>
+                        <h3 class="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">CoinFinder (Deep Search)</h3>
+                    </div>
+                </div>
+
+                <!-- ITEM 8: MANY MORE -->
+                <a href="#connect" class="gallery-item many-more-card group relative overflow-hidden rounded-sm border border-gold-base/30 aspect-square cursor-pointer bg-dark-900/40 hover:bg-gold-base/10 transition-all duration-500 flex flex-col items-center justify-center text-center p-2 sm:p-4">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.15)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <h3 class="font-serif text-sm sm:text-xl md:text-2xl text-gold-base font-bold mb-1 sm:mb-3 group-hover:text-gold-light transition-colors duration-500">Many More</h3>
+                        <span class="inline-flex items-center space-x-1 sm:space-x-2 text-gold-base/80 text-[6px] sm:text-[8px] md:text-[9px] font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase group-hover:text-gold-light transition-colors">
+                            <span class="border-b border-transparent group-hover:border-gold-light pb-0.5 transition-colors">Talk With Me</span>
+                            <i data-lucide="arrow-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 transform group-hover:translate-x-1.5 transition-transform duration-300"></i>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONNECT / CONTACT SECTION -->
+    <section id="connect" class="py-20 md:py-32 relative overflow-hidden">
+        <div class="section-divider-glow"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.04)_0%,transparent_50%)] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <div class="fade-in-up flex flex-col items-center text-center lg:items-start lg:text-left">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-8 md:w-10 h-[1px] bg-gold-base/60 hidden lg:block"></div>
+                        <span class="text-gold-base font-bold tracking-[0.4em] text-[10px] md:text-sm uppercase">Let's Collaborate</span>
+                        <div class="w-8 md:w-10 h-[1px] bg-gold-base/60 lg:hidden"></div>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase mb-6">
+                        Connect <br class="hidden lg:block"/> 
+                        <span class="text-gold italic inline-block ml-4 sm:ml-8 lg:ml-20 xl:ml-32 hover:translate-x-2 transition-transform duration-500">With Me</span>
+                    </h2>
+                    
+                    <p class="text-gray-400 text-sm md:text-base max-w-lg tracking-wide font-light leading-relaxed mb-10">
+                        Ready to build something extraordinary? Fill out the form or reach out through any of these platforms to start the conversation.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 max-w-[260px] mx-auto sm:max-w-none sm:mx-0">
+                        <a href="mailto:hello@narendra.com" aria-label="Email" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-gold-base hover:bg-gold-base text-gray-300 hover:text-dark-900 transition-all duration-300 rounded-sm">
+                            <i data-lucide="mail" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                        </a>
+                        
+                        <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-green-500 hover:bg-green-500 text-gray-300 hover:text-dark-900 transition-all duration-300 rounded-sm">
+                            <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="#" target="_blank" aria-label="LinkedIn" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-[#0A66C2] hover:bg-[#0A66C2] text-gray-300 hover:text-white transition-all duration-300 rounded-sm">
+                            <svg class="w-5 h-5 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect width="4" height="12" x="2" y="9"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.instagram.com/irrendra97/" target="_blank" aria-label="Instagram" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-[#E1306C] hover:bg-gradient-to-tr hover:from-[#FD1D1D] hover:to-[#833AB4] text-gray-300 hover:text-white transition-all duration-300 rounded-sm">
+                            <svg class="w-5 h-5 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                            </svg>
+                        </a>
+
+                        <a href="#" target="_blank" aria-label="TikTok" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white hover:bg-white text-gray-300 hover:text-black transition-all duration-300 rounded-sm">
+                            <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.12-3.44-3.17-3.8-5.46-.4-2.51.33-5.17 2.06-7.01 1.7-1.81 4.25-2.65 6.64-2.22V12.1c-1.2-.16-2.45.02-3.48.65-.9.51-1.58 1.36-1.82 2.37-.28 1.11-.06 2.31.57 3.23.63.95 1.71 1.55 2.84 1.71 1.33.15 2.7-.22 3.69-1.07.91-.76 1.45-1.89 1.54-3.08.18-5.32.12-10.65.13-15.98Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://x.com/irrendra97" target="_blank" aria-label="X" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white hover:bg-white text-gray-300 hover:text-black transition-all duration-300 rounded-sm">
+                            <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                            </svg>
+                        </a>
+
+                        <a href="#" target="_blank" aria-label="Threads" class="group relative overflow-hidden flex items-center justify-center w-11 h-11 bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-white hover:bg-white text-gray-300 hover:text-black transition-all duration-300 rounded-sm">
+                            <i data-lucide="at-sign" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-in-up delay-100">
+                    <form class="glass-card p-6 md:p-8 rounded-sm space-y-5" onsubmit="event.preventDefault();">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Name</label>
+                                <input type="text" id="name" placeholder="John Doe" class="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Email</label>
+                                <input type="email" id="email" placeholder="john@example.com" class="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Subject</label>
+                            <input type="text" id="subject" placeholder="How can we collaborate? / Job Offer" class="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Message</label>
+                            <textarea id="message" rows="4" placeholder="Tell me about your desire..." class="w-full bg-white/[0.03] border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-base focus:bg-white/[0.05] transition-all duration-300 placeholder-gray-600 resize-none" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-premium-gold w-full px-8 py-4 bg-gold-gradient text-dark-900 font-extrabold tracking-[0.15em] uppercase text-xs rounded-sm text-center shadow-lg flex items-center justify-center space-x-2 mt-2">
+                            <span>Send Message</span>
+                            <i data-lucide="send" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950/80 backdrop-blur-xl py-12 md:py-16 fade-in-up relative">
+        <div class="section-divider-glow"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-8 md:mb-0">
+                <span class="font-serif text-2xl font-bold tracking-wider text-white uppercase">NARE<span class="text-gold-base">N</span>DRA<span class="text-gold-base">.</span></span>
+                <p class="text-gray-500 text-[9px] md:text-[10px] uppercase tracking-[0.3em] mt-4">© 2026 Narendra Eka Cipta</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12">
+                <a href="#about" class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 hover:text-gold-base transition-colors">About</a>
+                <a href="#services" class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 hover:text-gold-base transition-colors">Capabilities</a>
+                <a href="#experience" class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 hover:text-gold-base transition-colors">Experience</a>
+                <a href="#business" class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 hover:text-gold-base transition-colors">Ventures</a>
+                <a href="#portfolio" class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-400 hover:text-gold-base transition-colors">Gallery</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        let lastScrollTop = 0;
+        let ticking = false;
+        const navbar = document.getElementById('smart-nav');
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > lastScrollTop && scrollTop > 60) {
+                        if (navbar) navbar.classList.add('nav-hidden');
+                    } else {
+                        if (navbar) navbar.classList.remove('nav-hidden');
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+                    const orbContainer = document.querySelector('.orb-container');
+                    const bgPattern = document.querySelector('.bg-pattern');
+                    if (orbContainer) orbContainer.style.transform = `translate3d(0, ${scrollTop * 0.15}px, 0)`;
+                    if (bgPattern) bgPattern.style.transform = `translate3d(0, ${scrollTop * 0.05}px, 0)`;
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        function switchCapability(tabElement, paneId) {
+            document.querySelectorAll('.capability-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            if (tabElement) tabElement.classList.add('active');
+
+            document.querySelectorAll('.capability-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            const targetPane = document.getElementById(paneId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+            });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        window.requestAnimationFrame(() => {
+                            entry.target.classList.add('is-visible');
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

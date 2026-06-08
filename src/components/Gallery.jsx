@@ -4,8 +4,10 @@ const galleryItems = [
   {
     title: 'Ar-Rauda',
     category: 'Mobile App',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-white/10 border-white/20 text-white'
+    image: '/Ar-Rauda.png',
+    tagClass: 'bg-white/10 border-white/20 text-white',
+    link: 'https://play.google.com/store/apps/details?id=com.work.arraudhah',
+    imageClass: 'object-contain object-center'
   },
   {
     title: 'BCA Auto-Scheduler',

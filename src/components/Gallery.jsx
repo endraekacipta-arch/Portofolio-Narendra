@@ -22,8 +22,9 @@ const galleryItems = [
   {
     title: 'BCA Syariah Opt-Report',
     category: 'Automation',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-purple-600/20 border-purple-500/30 text-purple-400'
+    image: '/BCA-Syariah-Scheduler.png',
+    tagClass: 'bg-purple-600/20 border-purple-500/30 text-purple-400',
+    link: 'https://cso-bca-syariah-scheduler.vercel.app/'
   },
   {
     title: 'TradingView Automation',
@@ -65,28 +66,35 @@ export default function Gallery() {
         </div>
 
         <div id="gallery-grid" className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 fade-in-up delay-200 mt-10">
-          {galleryItems.map((item) => (
-            <div 
-              key={item.title} 
-              className="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900"
-            >
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" 
-                loading="lazy" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
-              <div className="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
-                <span className={`inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 backdrop-blur-md border text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2 ${item.tagClass}`}>
-                  {item.category}
-                </span>
-                <h3 className="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">
-                  {item.title}
-                </h3>
-              </div>
-            </div>
-          ))}
+          {galleryItems.map((item) => {
+            const CardWrapper = item.link ? 'a' : 'div';
+            const wrapperProps = item.link
+              ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' }
+              : {};
+            return (
+              <CardWrapper
+                key={item.title}
+                {...wrapperProps}
+                className="gallery-item group relative overflow-hidden rounded-sm border border-white/10 aspect-square cursor-pointer bg-dark-900"
+              >
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" 
+                  loading="lazy" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>
+                <div className="absolute bottom-0 left-0 w-full p-2.5 sm:p-5 translate-y-2 sm:translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                  <span className={`inline-block px-1.5 sm:px-2.5 py-0.5 sm:py-1 backdrop-blur-md border text-[5px] sm:text-[7px] font-bold tracking-widest uppercase rounded-sm mb-1 sm:mb-2 ${item.tagClass}`}>
+                    {item.category}
+                  </span>
+                  <h3 className="font-serif text-[10px] sm:text-lg text-white font-bold group-hover:text-gold-light transition-colors duration-500 leading-tight">
+                    {item.title}
+                  </h3>
+                </div>
+              </CardWrapper>
+            );
+          })}
 
           {/* MANY MORE Card - always shown at the end */}
           <a 

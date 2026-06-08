@@ -24,7 +24,8 @@ const galleryItems = [
     category: 'Automation',
     image: '/BCA-Syariah-Scheduler.png',
     tagClass: 'bg-purple-600/20 border-purple-500/30 text-purple-400',
-    link: 'https://cso-bca-syariah-scheduler.vercel.app/'
+    link: 'https://cso-bca-syariah-scheduler.vercel.app/',
+    imageClass: 'object-contain object-center'
   },
   {
     title: 'TradingView Automation',
@@ -80,7 +81,7 @@ export default function Gallery() {
                 <img 
                   src={item.image} 
                   alt={item.title} 
-                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" 
+                  className={`absolute inset-0 w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 transform ${item.imageClass ? item.imageClass : 'object-cover group-hover:scale-105'}`}
                   loading="lazy" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-900/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700 z-10"></div>

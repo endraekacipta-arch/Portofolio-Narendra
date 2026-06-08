@@ -16,8 +16,10 @@ const galleryItems = [
   {
     title: 'RenX CRM',
     category: 'Web Dev',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-blue-600/20 border-blue-500/30 text-blue-400'
+    image: '/RenX-CRM.png',
+    tagClass: 'bg-blue-600/20 border-blue-500/30 text-blue-400',
+    link: 'https://ren-x-mbl9.vercel.app/',
+    imageClass: 'object-contain object-center'
   },
   {
     title: 'BCA Syariah Opt-Report',

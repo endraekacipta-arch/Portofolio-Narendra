@@ -500,19 +500,10 @@ body {
   }
 
   #services .mb-12 > .flex {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    justify-content: flex-start !important;
-    padding-bottom: 1rem !important;
+    flex-direction: column !important;
     gap: 0.75rem !important;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    align-items: stretch !important;
+    padding-bottom: 0.5rem !important;
   }
 
   #services .mb-12 > .flex::-webkit-scrollbar {

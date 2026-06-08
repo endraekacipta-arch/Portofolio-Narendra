@@ -36,8 +36,9 @@ const galleryItems = [
   {
     title: 'TradingView Automation',
     category: 'FinTech',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop',
-    tagClass: 'bg-green-600/20 border-green-500/30 text-green-400'
+    image: '/Tradingview.png',
+    tagClass: 'bg-green-600/20 border-green-500/30 text-green-400',
+    imageClass: 'object-contain object-center'
   },
   {
     title: 'AI-Agent Custom',

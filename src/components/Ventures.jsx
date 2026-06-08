@@ -47,7 +47,7 @@ export default function Ventures() {
                 </li>
                 <li className="flex items-start text-xs md:text-sm text-gray-300 group/item">
                   <MousePointerClick className="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform" />
-                  <span className="leading-relaxed">Built automated workflows using AI Automation and Code Automation to optimize <span className="text-white font-medium">end-to-end business operations</span>.</span>
+                  <span className="leading-relaxed">Built automated workflows using <span className="text-white font-medium">AI Automation</span> (integrating LLMs for copywriting, chat agents, and intelligent data extraction) and <span className="text-white font-medium">Code Automation</span> (custom API integrations, webhook handling, and automated script pipelines) to optimize <span className="text-white font-medium">end-to-end business operations</span>.</span>
                 </li>
                 <li className="flex items-start text-xs md:text-sm text-gray-300 group/item">
                   <Camera className="w-4 h-4 text-gold-base shrink-0 mt-0.5 mr-3 group-hover/item:scale-110 transition-transform" />

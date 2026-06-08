@@ -279,7 +279,7 @@ export default function Experience() {
               <div className="flex-grow">
                 <div className="flex justify-between items-start mb-4">
                   <span className="inline-block px-2 py-1 bg-white/5 border border-white/10 text-[8px] md:text-[9px] font-bold text-gold-base uppercase tracking-widest rounded-sm group-hover:border-gold-base/30 transition-colors">Finance</span>
-                  <span className="text-gray-500 text-[9px] font-bold tracking-widest">2021</span>
+                  <span className="text-gray-500 text-[9px] font-bold tracking-widest">2020 - 2021</span>
                 </div>
                 <h4 className="text-lg font-serif text-white font-bold mb-1 group-hover:text-gold-light transition-colors">Tether</h4>
                 <p className="text-xs text-gray-400 italic mb-5">Testnet Evaluator (Solana Network)</p>

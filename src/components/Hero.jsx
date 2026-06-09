@@ -16,8 +16,7 @@ export default function Hero() {
         />
         
         {/* Mobile Gradients */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-dark-950 to-transparent z-10 lg:hidden"></div>
-        <div className="absolute bottom-0 left-0 w-full h-32 md:h-40 bg-gradient-to-t from-dark-950 to-transparent z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-32 md:h-40 bg-gradient-to-t from-dark-950 to-transparent z-10 hidden md:block"></div>
       </div>
 
       {/* Hero Content */}

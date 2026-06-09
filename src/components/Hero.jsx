@@ -11,7 +11,7 @@ export default function Hero() {
         <img 
           src="/Background-porto.png" 
           alt="AI Growth Background"
-          className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-contain opacity-20 sm:opacity-40 md:opacity-60 lg:opacity-100 object-center lg:object-right"
+          className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-contain opacity-70 md:opacity-80 lg:opacity-100 object-center lg:object-right"
           loading="eager"
         />
         

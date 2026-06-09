@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[120%] sm:w-[100%] md:w-[80%] lg:w-[60%] aspect-square bg-gold-base/10 blur-[80px] lg:blur-[120px] rounded-full"></div>
         
         <img 
-          src="https://res.cloudinary.com/dfpbzjpll/image/upload/q_auto/f_auto/v1780892948/ChatGPT_Image_Jun_8_2026_11_28_45_AM_c4eie8.png" 
+          src="/Background-porto.png" 
           alt="AI Growth Background"
           className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-cover opacity-20 sm:opacity-40 md:opacity-60 lg:opacity-100 object-center lg:object-right"
           loading="eager"

@@ -5,13 +5,13 @@ export default function Hero() {
     <section id="hero" className="relative flex items-center overflow-hidden w-full min-h-[85vh] lg:min-h-[100vh]">
       
       {/* Background */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 hero-bg-mask mix-blend-screen">
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[120%] sm:w-[100%] md:w-[80%] lg:w-[60%] aspect-square bg-gold-base/10 blur-[80px] lg:blur-[120px] rounded-full"></div>
         
         <img 
           src="/Background-porto.png" 
           alt="AI Growth Background"
-          className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-contain opacity-100 mix-blend-screen object-center lg:object-right"
+          className="absolute top-0 right-0 w-full lg:w-[85%] h-full object-contain lg:object-cover opacity-100 object-center lg:object-right"
           loading="eager"
         />
         

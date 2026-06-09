@@ -468,11 +468,6 @@ body {
 }
 
 /* --- RESPONSIVE MASKS --- */
-.hero-bg-mask {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 40%, black 100%);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 40%, black 100%);
-}
-
 @media (min-width: 1024px) {
   .hero-bg-mask {
     -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, rgba(0, 0, 0, 0.6) 70%, black 100%);
